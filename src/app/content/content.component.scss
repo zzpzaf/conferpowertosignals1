@@ -1,0 +1,14 @@
+.main-cont {
+    width: 100%;
+    height:63vh;
+    display:flex;
+    flex-direction: column;
+    background-color: var(--back-color3);
+    color:black
+}
+
+hr {
+    border: 1px solid rgb(11, 56, 11);
+    width:35%;
+    margin-left:0;
+}

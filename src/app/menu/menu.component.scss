@@ -1,0 +1,26 @@
+.main-cont {
+  width: 100%;
+  height: 7vh;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--back-color2);
+  color: azure;
+  justify-content:flex-end;
+  align-items: center;
+  border-top: 1px solid rgb(120, 148, 165);
+}
+
+.sitemenu  {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-evenly;
+}
+
+.sitemenu > button {
+  height: 30px;
+  width: max-content;
+  background-color:var(--btn-back-color1);
+  border-radius: 15%;
+  font-weight:bold;
+}

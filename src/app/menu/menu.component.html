@@ -1,0 +1,14 @@
+
+<div class="main-cont">
+  
+  <div class="sitemenu">
+
+    @for (item of navMenuItems1; track $index) {
+    <button (click)="itemSiteMenuClicked(item)">
+      {{ item.categoryName }}
+    </button>
+    }
+    
+  </div>
+
+</div>

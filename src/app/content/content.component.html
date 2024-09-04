@@ -1,0 +1,9 @@
+<div class="main-cont">
+  <p>{{contentHeader}}</p>
+  <hr />
+  @if (items && items.length>0) 
+    { @for (item of items; track $index) {
+        <p>id: {{ item.itemId }}, category: {{ item.categoryId }}, Name: {{ item.itemName }}</p>
+    } 
+  }
+</div>
