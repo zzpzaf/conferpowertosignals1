@@ -12,11 +12,11 @@ import { Subscription } from 'rxjs';
 export class ContentComponent {
 
   constructor(private dataService: DataService) {
-    let categoryId: number = 0;
+
     this.itemsSubscription = this.dataService.getCategoryId().subscribe({
-      next: (catId: number) => {categoryId = catId;
+      next: (catId: number) => {this.categoryId = catId;
         // console.log(">===>>" + this.componentName + " CategoryId: " + categoryId);
-        if (categoryId > 0) this.getCategoryItems(categoryId);
+        if (this.categoryId > 0) this.getCategoryItems(this.categoryId);
       },
       error: (error) => {
         console.log(">===>>" + this.componentName  + ' - ' + error +  " - " + 'Error getting Items.');
@@ -25,7 +25,8 @@ export class ContentComponent {
   } 
 
   componentName = this.constructor.name.replace('_', '');
-  contentHeader = 'The Items:'
+  contentHeader = 'Items of Category ';
+  categoryId: number = 0;
   items!: IItem[];
   itemsSubscription!: Subscription;
 

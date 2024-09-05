@@ -22,5 +22,10 @@
   width: max-content;
   background-color:var(--btn-back-color1);
   border-radius: 15%;
-  font-weight:bold;
+  // font-weight:bold;
+}
+
+.selected-item {
+  background-color: var(--btn-back-color2) !important; /* Example selected background color */
+  // color: white; /* Example selected text color */
 }

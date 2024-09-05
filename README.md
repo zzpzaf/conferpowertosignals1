@@ -4,7 +4,13 @@
 
 ![screen-shoot](/src/assets/images/confer-power.png)
 
-It uses the following 4 components:
+It uses:
+
+The DataService
+
+and 
+
+The following 4 components:
 
 * HeaderComponent
 * MenuComponent

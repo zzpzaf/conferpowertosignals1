@@ -4,7 +4,10 @@
   <div class="sitemenu">
 
     @for (item of navMenuItems1; track $index) {
-    <button (click)="itemSiteMenuClicked(item)">
+    <button 
+    [ngClass]="{ 'selected-item': selectedItem === $index }"
+    (click)="itemSiteMenuClicked(item, $index)"
+    >
       {{ item.categoryName }}
     </button>
     }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService, ICategory } from '../data.service';
+import { CommonModule } from '@angular/common';
 
 export interface ISiteMenu {
   siteMenuId: number;
@@ -10,7 +11,9 @@ export interface ISiteMenu {
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+  ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
@@ -20,7 +23,7 @@ export class MenuComponent implements OnInit{
   
   componentName = this.constructor.name.replace('_', '');
   navMenuItems1: ICategory[] = [];
-
+  selectedItem: number | null = null;
 
   ngOnInit(): void {
     this.dataService.getCategories().subscribe((categories: ICategory[]) => {
@@ -31,9 +34,10 @@ export class MenuComponent implements OnInit{
 
 
 
-  itemSiteMenuClicked(menuItem: ICategory): void {
-    // console.log(">===>> "+'Menu Item clicked: '+ menuItem.categoryName )
+  itemSiteMenuClicked(menuItem: ICategory, i: number): void {
+    // console.log(">===>> "+'Menu Item clicked: ' + i + " - " + menuItem.categoryName )
     this.dataService.setCategoryId(menuItem.categoryId);
+    this.selectedItem = i;
   }
 
 }
