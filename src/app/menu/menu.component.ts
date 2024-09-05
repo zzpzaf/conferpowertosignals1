@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService, ICategory } from '../data.service';
+import { Component, effect, inject, OnInit } from '@angular/core';
+import { ICategory } from '../data.service';
 import { CommonModule } from '@angular/common';
+import { ContentService } from '../content.service';
 
 export interface ISiteMenu {
   siteMenuId: number;
   siteMenuTitle: string;
 }
-
 
 @Component({
   selector: 'app-menu',
@@ -17,26 +17,22 @@ export interface ISiteMenu {
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
-export class MenuComponent implements OnInit{
+export class MenuComponent {
 
-  constructor(private dataService: DataService) {} 
-  
+  constructor() {
+    effect(() => {
+        this.navMenuItems1 = this.contentService.$categories();
+    });
+  } 
+
+  private contentService = inject(ContentService);
+ 
   componentName = this.constructor.name.replace('_', '');
   navMenuItems1: ICategory[] = [];
   selectedItem: number | null = null;
 
-  ngOnInit(): void {
-    this.dataService.getCategories().subscribe((categories: ICategory[]) => {
-      this.navMenuItems1 = categories;
-      // console.log(">===>> " + this.componentName + " - ngOnInit() - Categories: " +JSON.stringify(this.navMenuItems1));
-    });
-  }
-
-
-
   itemSiteMenuClicked(menuItem: ICategory, i: number): void {
-    // console.log(">===>> "+'Menu Item clicked: ' + i + " - " + menuItem.categoryName )
-    this.dataService.setCategoryId(menuItem.categoryId);
+    this.contentService.signalItems(menuItem);
     this.selectedItem = i;
   }
 

@@ -6,16 +6,21 @@
 
 It uses:
 
-The DataService
+* The DataService (Uses the HttpClient and defines the necessary Observables)
+* The ContentService - as an **intermediate** service that subscribes to DataService Observables and transforms their output to Signals
 
 and 
 
 The following 4 components:
 
 * HeaderComponent
-* MenuComponent
-* ContentComponent
+* MenuComponent (Data consumer Component using Signals)
+* ContentComponent (Data consumer Component using Signals)
 * FooterComponent
+
+Read more at my post: **"Angular: Confer the power from your Observables to Signals!"**
+* **[Medium](https://medium.com/@zzpzaf.se)**
+* **[DevXperiences](https://www.devxperiences.com/developers-posts/)** 
 
 ----
 ### Auto-generated Info

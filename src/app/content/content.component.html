@@ -1,5 +1,5 @@
 <div class="main-cont">
-  <p>{{contentHeader}} {{(categoryId == 0) ? '' : categoryId}}: </p>
+  <p>{{contentHeader}} {{(items == undefined) ? '' : items[0].categoryId}}: </p>
   <hr />
   @if (items && items.length>0) 
     { @for (item of items; track $index) {
