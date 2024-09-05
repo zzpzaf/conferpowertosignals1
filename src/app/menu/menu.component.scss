@@ -25,6 +25,10 @@
   // font-weight:bold;
 }
 
+.sitemenu > button:hover {
+  background-color: var( --btn-back-color3) !important;
+}
+
 .selected-item {
   background-color: var(--btn-back-color2) !important; /* Example selected background color */
   // color: white; /* Example selected text color */
